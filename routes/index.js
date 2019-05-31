@@ -12,4 +12,53 @@ router.get('/messages', function (req, res) {
     res.end(JSON.stringify(message))
 });
 
+// Get the list of destinations, convert it to JSON and send it back to the client
+router.get('/destinations', function (req, res) {
+    const count = req.query.count !== undefined ? req.query.count : req.query.count = 100;
+    if (req.query.country) {
+        const countrySpots = destinations.filter(function (destination) {
+            return destination.country === req.query.country
+        });
+        res.end(JSON.stringify(countrySpots.slice(0, count)))
+    }
+    res.end(JSON.stringify(destinations.slice(0, count)))
+});
+
+// Arbitrary ID manager
+const pos = 5;
+
+// Initializing destinations array
+const destinations = [
+    {
+        "id": 1,
+        "city": "Nairobi",
+        "description": "The city of cool waters",
+        "country": "Kenya"
+    },
+    {
+        "id": 2,
+        "city": "Juba",
+        "description": " A city where the Nile passes through",
+        "country": "South Sudan"
+    },
+    {
+        "id": 3,
+        "city": "Kampala",
+        "description": " A city on hills",
+        "country": "Uganda"
+    },
+    {
+        "id": 4,
+        "city": "Dar-es-Salaam",
+        "description": " A haven of peace",
+        "country": "Tanzania"
+    },
+    {
+        "id": 5,
+        "city": "Addis Ababa",
+        "description": " New flower",
+        "country": "Ethiopia"
+    }
+];
+
 module.exports = router;
