@@ -61,6 +61,16 @@ router.put('/destination/:id', function (req, res) {
    res.end(JSON.stringify(place))
 });
 
+// Delete a destination
+router.delete('destination/:id', function (req, res) {
+   for (let i = 0; i < destinations.length; i++) {
+       if (destinations[i].id === req.params.id) {
+           destinations.slice(i, 1);
+           res.status(204).end(JSON.stringify(destinations[i]))
+       }
+   }
+});
+
 // Arbitrary ID manager
 let pos = 5;
 
