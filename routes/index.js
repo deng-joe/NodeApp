@@ -62,7 +62,7 @@ router.put('/destination/:id', function (req, res) {
 });
 
 // Delete a destination
-router.delete('destination/:id', function (req, res) {
+router.delete('/destination/:id', function (req, res) {
    for (let i = 0; i < destinations.length; i++) {
        if (destinations[i].id === req.params.id) {
            destinations.slice(i, 1);
