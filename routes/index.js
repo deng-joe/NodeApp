@@ -14,7 +14,7 @@ router.get('/messages', function (req, res) {
 
 // Get the list of destinations, convert it to JSON and send it back to the client
 router.get('/destination', function (req, res) {
-    const count = req.query.count !== undefined ? req.query.count : req.query.count = 100;
+    const count = req.query.count != undefined ? req.query.count : req.query.count = 100;
     if (req.query.country) {
         const countrySpots = destinations.filter(function (destination) {
             return destination.country === req.query.country
@@ -27,7 +27,7 @@ router.get('/destination', function (req, res) {
 // Get one particular destination using ID
 router.get('/destination/:id', function (req, res) {
    for (let i = 0; i < destinations.length; i++) {
-       if (destinations[i].id === req.params.id) {
+       if (destinations[i].id == req.params.id) {
            res.end(JSON.stringify(destinations[i]))
        }
    }
@@ -51,7 +51,7 @@ router.post('/destination', function (req, res) {
 router.put('/destination/:id', function (req, res) {
     let place;
     for (let i = 0; i < destinations.length; i++) {
-       if (destinations[i].id === req.params.id) {
+       if (destinations[i].id == req.params.id) {
            destinations[i].city = req.body.city;
            destinations[i].country = req.body.country;
            destinations[i].description = req.body.description;
@@ -64,7 +64,7 @@ router.put('/destination/:id', function (req, res) {
 // Delete a destination
 router.delete('/destination/:id', function (req, res) {
    for (let i = 0; i < destinations.length; i++) {
-       if (destinations[i].id === req.params.id) {
+       if (destinations[i].id == req.params.id) {
            destinations.slice(i, 1);
            res.status(204).end(JSON.stringify(destinations[i]))
        }
