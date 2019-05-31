@@ -81,29 +81,25 @@ const destinations = [
         "city": "Nairobi",
         "description": "The city of cool waters",
         "country": "Kenya"
-    },
-    {
+    }, {
         "id": 2,
         "city": "Juba",
-        "description": " A city where the Nile passes through",
+        "description": "The capital of South Sudan",
         "country": "South Sudan"
-    },
-    {
+    }, {
         "id": 3,
         "city": "Kampala",
-        "description": " A city on hills",
+        "description": "A city on hills",
         "country": "Uganda"
-    },
-    {
+    }, {
         "id": 4,
         "city": "Dar-es-Salaam",
-        "description": " A haven of peace",
+        "description": "A haven of peace",
         "country": "Tanzania"
-    },
-    {
+    }, {
         "id": 5,
         "city": "Addis Ababa",
-        "description": " New flower",
+        "description": "New flower",
         "country": "Ethiopia"
     }
 ];
