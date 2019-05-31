@@ -33,8 +33,22 @@ router.get('/destination/:id', function (req, res) {
    }
 });
 
+// Create a destination and add it to existing destinations list
+router.post('/destination', function (req, res) {
+    const newDestination = {
+        "city": req.body.city,
+        "description": req.body.description,
+        "country": req.body.country,
+        "id": pos + 1
+    };
+
+    pos++;
+    destinations.push(newDestination);
+    res.status(201).end(JSON.stringify(newDestination))
+});
+
 // Arbitrary ID manager
-const pos = 5;
+let pos = 5;
 
 // Initializing destinations array
 const destinations = [
