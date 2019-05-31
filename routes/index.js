@@ -47,6 +47,20 @@ router.post('/destination', function (req, res) {
     res.status(201).end(JSON.stringify(newDestination))
 });
 
+// Update a destination
+router.put('/destination/:id', function (req, res) {
+    let place;
+    for (let i = 0; i < destinations.length; i++) {
+       if (destinations[i].id === req.params.id) {
+           destinations[i].city = req.body.city;
+           destinations[i].country = req.body.country;
+           destinations[i].description = req.body.description;
+           place = destinations[i]
+       }
+   }
+   res.end(JSON.stringify(place))
+});
+
 // Arbitrary ID manager
 let pos = 5;
 
