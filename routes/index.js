@@ -13,7 +13,7 @@ router.get('/messages', function (req, res) {
 });
 
 // Get the list of destinations, convert it to JSON and send it back to the client
-router.get('/destinations', function (req, res) {
+router.get('/destination', function (req, res) {
     const count = req.query.count !== undefined ? req.query.count : req.query.count = 100;
     if (req.query.country) {
         const countrySpots = destinations.filter(function (destination) {
@@ -22,6 +22,15 @@ router.get('/destinations', function (req, res) {
         res.end(JSON.stringify(countrySpots.slice(0, count)))
     }
     res.end(JSON.stringify(destinations.slice(0, count)))
+});
+
+// Get one particular destination using ID
+router.get('/destination/:id', function (req, res) {
+   for (let i = 0; i < destinations.length; i++) {
+       if (destinations[i].id === req.params.id) {
+           res.end(JSON.stringify(destinations[i]))
+       }
+   }
 });
 
 // Arbitrary ID manager
